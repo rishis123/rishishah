@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishi Shah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+    body { font-family: 'Quantico', sans-serif; }
+
+    .flash-img {
+        width: 350px;
+        height: 350px;
+        object-fit: cover;
+        display: block;
+        background: #e5e7eb;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    #photo-row {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+        margin-bottom: 48px;
+    }
+
+    .active-link { color: #111; font-weight: 700; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <main style="max-width: 680px; margin: 0 auto; padding: 100px 32px 0;">
+
+        <div id="photo-row">
+            <img id="profileImage1" class="flash-img" src="" alt="photo 1" />
+            <img id="profileImage2" class="flash-img" src="" alt="photo 2" />
+        </div>
+
+        <header style="margin-bottom: 32px;">
+            <h1 style="font-size: 1.75rem; font-weight: 700; color: #111; margin-bottom: 8px;">Rishi Shah</h1>
+            <p style="font-size: 1rem; color: #6b7280; font-family: monospace;">
+                NYC. Learning in Ithaca, NY. Creating the future of payments at Apple.
+            </p>
+        </header>
+
+        <nav style="display: flex; gap: 20px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; margin-bottom: 32px;">
+            <button onclick="showTab('Home')" id="link-Home" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;" class="active-link">Home</button>
+            <button onclick="showTab('Building')" id="link-Building" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;">Building</button>
+            <button onclick="showTab('Writing')" id="link-Writing" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;">Writing</button>
+        </nav>
+
+        <div id="main-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
+
+            <section id="main-section">
+                <div id="Home" class="tab-content">
+                    <p style="font-size: 1rem; line-height: 1.75; color: #4b5563;">
+                        Cornell CS, prev bio. Interested in Fintech, Medtech, and the Zero to One.
+                        Currently building TrendForSale.
+                        <br><br>
+                        Prev SWE Intern (AWS + ETL) at Capital One TradeCredit, founding ML Engineer at HealthTrends.AI. 
+                        <a href="pdfs/Shah_Rishi.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">resume</a>
+
+                        <br><br>
+                        Find me at rrs244[at]cornell.edu.
+                    </p>
+                </div>
+
+                <div id="Building" class="tab-content" style="display:none">
+                    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px;">
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">TrendForSale</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Clothes to rep your favorite trends. Check back in soon.</p>
+                        </li>
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">Terra</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">ML and ISE sensor driven hydroponics. Cornell Digital Agriculture Hackathon.</p>
+                            <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                <a href="https://github.com/rishis123/DigAg-Hacks" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">repo</a>
+                                <a href="pdfs/Terra%20Pitch%20Deck.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">pdf</a>
+                            </div>
+                        </li>
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">Re-Implementing PhyDMS</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Rebuilding a viral mutation predictive library from a bunch of statistical equations.</p>
+                            <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                <a href="pdfs/Re-Implementing%20ExpCM%20Likelihood%20Function%20from%20PhyDMS.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">pdf</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">MentorMatch</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Matching mentors with students using vector embeddings. Capital One Intern Hackathon.</p>
+                            <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                <a href="pdfs/Mentor%20Match%20Pitch.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">pdf</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">Curico Recipes</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Transformers for Recipe innovation. Cornell Food Hackathon.</p>
+                            <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                <a href="pdfs/Curious-2.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">pdf</a>
+                            </div>
+                        </li>
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">EduConnect.AI</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">ML to connect users with nonprofits. Cornell AI Hackathon.</p>
+                            <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                <a href="https://github.com/justandrewhu/ai-hackathon-educonnect" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">repo</a>
+                                <a href="pdfs/ATREUS%20ALLIANCE.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">pdf</a>
+                            </div>
+                        </li>
+
+                        <li>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">Password Manager</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">A journey on persistence and GUI in OCaml.</p>
+                            <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                <a href="https://github.com/rishis123/CS3110_Final" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">repo</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="Writing" class="tab-content" style="display:none">
+                    <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Check back in soon.</p>
+                </div>
+            </section>
+
+            <section id="home-sidebar" style="border-left: 1px solid #f3f4f6; padding-left: 24px;">
+                <p style="font-size: 0.95rem; font-style: italic; font-family: monospace; color: #9ca3af; line-height: 1.8;">
+                    Big fan of Birding, Toni Morrison, Hackathons, Moral Psychology, Ritvikmath...
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const allImages = [
+            'images/me1.jpg','images/me2.jpg','images/me3.jpg',
+            'images/me4.jpg','images/me5.png','images/interest1.jpg',
+            'images/interest2.jpg','images/interest3.jpg',
+            'images/interest4.png','images/interest5.jpg',
+        ];
+
+        let currentImages = [allImages[0], allImages[5]];
+        const photoSlots = [
+            { id: 1, timeoutId: null, isPaused: false },
+            { id: 2, timeoutId: null, isPaused: false },
+        ];
+
+        function getRandomAvailableImage() {
+            const available = allImages.filter(img => !currentImages.includes(img));
+            if (!available.length) return null;
+            return available[Math.floor(Math.random() * available.length)];
+        }
+
+        function getRandomInterval() { return Math.random() * 300 + 1000; }
+
+        function switchImageForSlot(slotIndex) {
+            const slot = photoSlots[slotIndex];
+            if (!slot.isPaused) {
+                const newImage = getRandomAvailableImage();
+                if (newImage) {
+                    currentImages[slotIndex] = newImage;
+                    document.getElementById(`profileImage${slot.id}`).src = newImage;
+                }
+            }
+            slot.timeoutId = setTimeout(() => switchImageForSlot(slotIndex), getRandomInterval());
+        }
+
+        window.addEventListener('load', () => {
+            document.getElementById('profileImage1').src = currentImages[0];
+            document.getElementById('profileImage2').src = currentImages[1];
+            for (let i = 0; i < 2; i++) {
+                const slot = photoSlots[i];
+                const img = document.getElementById(`profileImage${slot.id}`);
+                img.addEventListener('mouseenter', () => { slot.isPaused = true; });
+                img.addEventListener('mouseleave', () => { slot.isPaused = false; });
+                img.addEventListener('click', () => { slot.isPaused = !slot.isPaused; });
+                slot.timeoutId = setTimeout(() => switchImageForSlot(i), i * 500 + getRandomInterval());
+            }
+        });
+
+        function showTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(el => el.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-link'));
+            document.getElementById('link-' + tabId).classList.add('active-link');
+            document.getElementById('home-sidebar').style.display = tabId === 'Home' ? '' : 'none';
+            document.getElementById('main-section').style.gridColumn = tabId === 'Building' ? '1 / -1' : '';
+        }
+    </script>
+</body>
+</html>
