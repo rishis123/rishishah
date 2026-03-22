@@ -1,1 +1,1 @@
-Visit at: https://rishis123.github.io/rishishah/
+Visit site at: https://rishis123.github.io/rishishah/
