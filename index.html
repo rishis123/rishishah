@@ -27,6 +27,7 @@
     }
 
     .active-link { color: #111; font-weight: 700; }
+
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
@@ -45,10 +46,10 @@
             </p>
         </header>
 
-        <nav style="display: flex; gap: 20px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; margin-bottom: 32px;">
+        <nav style="display: flex; gap: 20px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; margin-bottom: 32px; align-items: center;">
             <button onclick="showTab('Home')" id="link-Home" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;" class="active-link">Home</button>
             <button onclick="showTab('Building')" id="link-Building" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;">Building</button>
-            <button onclick="showTab('Writing')" id="link-Writing" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;">Writing</button>
+            <a href="blog/" id="link-Writing" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; text-decoration: none;">Writing</a>
         </nav>
 
         <div id="main-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
@@ -164,9 +165,6 @@
                     </ul>
                 </div>
 
-                <div id="Writing" class="tab-content" style="display:none">
-                    <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Check back in soon.</p>
-                </div>
             </section>
 
             <section id="home-sidebar" style="border-left: 1px solid #f3f4f6; padding-left: 24px;">

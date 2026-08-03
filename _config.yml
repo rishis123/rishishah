@@ -1,0 +1,17 @@
+title: Rishi Shah
+email: rrs244@cornell.edu
+description: Personal site and engineering blog.
+baseurl: ""
+url: ""
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  input: GFM
+permalink: /blog/:title/
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - .sass-cache/
+  - .jekyll-cache/
+  - node_modules/
