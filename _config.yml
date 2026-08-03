@@ -1,8 +1,8 @@
 title: Rishi Shah
 email: rrs244@cornell.edu
 description: Personal site and engineering blog.
-baseurl: ""
-url: ""
+baseurl: "/rishishah"
+url: "https://rishis123.github.io"
 markdown: kramdown
 highlighter: rouge
 kramdown:
