@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+  <style>
+    body {
+      margin: 0;
+      background: #ffffff;
+      color: #111827;
+      font-family: 'Quantico', sans-serif;
+    }
+    .article-shell {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 80px 32px 48px;
+    }
+    .post-meta {
+      font-size: 0.9rem;
+      font-family: monospace;
+      color: #9ca3af;
+      margin-bottom: 20px;
+    }
+    .dot { margin: 0 6px; }
+    .tag {
+      display: inline-block;
+      margin-right: 6px;
+    }
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 16px;
+    }
+    .post-content p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+    .post-content h3,
+    .post-content h4,
+    .post-content h5 {
+      color: #111;
+    }
+    .post-content ul,
+    .post-content ol {
+      color: #4b5563;
+    }
+    .back-link {
+      margin-top: 24px;
+    }
+    .back-link a {
+      font-size: 0.85rem;
+      font-family: monospace;
+      color: #9ca3af;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <main class="article-shell">
+    {{ content }}
+  </main>
+
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      if (window.renderMathInElement) {
+        renderMathInElement(document.querySelector('.article-shell'), {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ]
+        });
+      }
+    });
+  </script>
+</body>
+</html>
