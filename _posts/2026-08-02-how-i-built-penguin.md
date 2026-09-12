@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How I Built Penguin"
+title: "Hello World"
 description: "Intro"
 date: 2026-08-02 10:00:00 -0400
 ---
