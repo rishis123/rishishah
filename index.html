@@ -9,10 +9,11 @@
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
     body { font-family: 'Quantico', sans-serif; }
+    main { max-width: 680px; margin: 0 auto; padding: 100px 32px 48px; }
 
     .flash-img {
-        width: 350px;
-        height: 350px;
+        width: 100%;
+        aspect-ratio: 1;
         object-fit: cover;
         display: block;
         background: #e5e7eb;
@@ -21,30 +22,43 @@
     }
 
     #photo-row {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         gap: 16px;
         margin-bottom: 48px;
     }
 
     .active-link { color: #111; font-weight: 700; }
 
+    #Home { font-size: 1rem; line-height: 1.75; color: #4b5563; }
+    #Home > p + p { margin-top: 20px; }
+    #Home .personal-footer {
+        margin-top: 32px;
+        padding-top: 20px;
+        border-top: 1px solid #f3f4f6;
+        font-size: 0.85rem;
+        font-family: monospace;
+        color: #9ca3af;
+    }
+
+    @media (max-width: 480px) {
+        main { padding: 48px 24px 40px; }
+        #photo-row { gap: 12px; margin-bottom: 32px; }
+    }
+
     </style>
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-    <main style="max-width: 680px; margin: 0 auto; padding: 100px 32px 0;">
+    <main>
 
         <div id="photo-row">
             <img id="profileImage1" class="flash-img" src="" alt="photo 1" />
             <img id="profileImage2" class="flash-img" src="" alt="photo 2" />
         </div>
 
-        <header style="margin-bottom: 32px;">
-            <h1 style="font-size: 1.75rem; font-weight: 700; color: #111; margin-bottom: 8px;">Rishi Shah</h1>
-            <p style="font-size: 1rem; color: #6b7280; font-family: monospace;">
-                NYC. Cornell CS (grad. May 2027). Applied AI/ML Research at Microsoft Azure for CPU Performance Intelligence.
-            </p>
+        <header style="margin-bottom: 24px;">
+            <h1 style="font-size: 1.75rem; font-weight: 700; color: #111;">Rishi Shah</h1>
         </header>
 
         <nav style="display: flex; gap: 20px; border-bottom: 1px solid #f3f4f6; padding-bottom: 10px; margin-bottom: 32px; align-items: center;">
@@ -53,20 +67,26 @@
             <button onclick="showTab('Writing')" id="link-Writing" style="font-size: 0.9rem; font-family: monospace; color: #6b7280; background: none; border: none; cursor: pointer;">Writing</button>
         </nav>
 
-        <div id="main-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px;">
-
             <section id="main-section">
                 <div id="Home" class="tab-content">
-                    <p style="font-size: 1rem; line-height: 1.75; color: #4b5563;">
-                        Prev. SWE Intern at Apple and Capital One; founding ML Engineer at HealthTrends.AI.
-                        <br><br>
-                        2&times; Hackathon Winner, including Google DeepMind &times; LangChain Multimodal Hackathon (2026).
-                        <br><br>
-                        Interested in applied AI and backend/infrastructure. Open to new grad SWE roles starting Summer 2027.
+                    <p>
+                        Cornell CS &rsquo;27, based in NYC. Applied AI/ML at Microsoft Azure, focused on CPU performance intelligence.
+                    </p>
+                    <p>
+                        Previously a SWE intern at Apple and Capital One; founding ML engineer at HealthTrends.AI. Two-time hackathon winner, including Google DeepMind &times; LangChain.
+                    </p>
+                    <p>
+                        Building at Cornell Commons, a hacker house in The Residency network.
+                    </p>
+                    <p>
+                        Interested in applied AI and backend/infrastructure. Seeking new-grad SWE roles starting Summer 2027.
                         <a href="pdfs/Shah_Rishi.pdf" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">resume</a>
-
-                        <br><br>
-                        Find me at rrs244[at]cornell.edu and <a href="https://www.linkedin.com/in/rishi-shah123/" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">LinkedIn</a>.
+                    </p>
+                    <p>
+                        Find me at <a href="mailto:rrs244@cornell.edu" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">rrs244@cornell.edu</a> and <a href="https://www.linkedin.com/in/rishi-shah123/" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">LinkedIn</a>.
+                    </p>
+                    <p class="personal-footer">
+                        Outside work: birding, climbing, running, Toni Morrison, LOTR, hackathons, moral psychology, and Ritvikmath.
                     </p>
                 </div>
 
@@ -181,13 +201,6 @@
 
             </section>
 
-            <section id="home-sidebar" style="border-left: 1px solid #f3f4f6; padding-left: 24px;">
-                <p style="font-size: 0.95rem; font-style: italic; font-family: monospace; color: #9ca3af; line-height: 1.8;">
-                    Big fan of Birding, Toni Morrison, Hackathons, Moral Psychology, Ritvikmath...
-                </p>
-            </section>
-
-        </div>
     </main>
 
     <script>
@@ -242,8 +255,6 @@
             document.getElementById(tabId).style.display = 'block';
             document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active-link'));
             document.getElementById('link-' + tabId).classList.add('active-link');
-            document.getElementById('home-sidebar').style.display = tabId === 'Home' ? '' : 'none';
-            document.getElementById('main-section').style.gridColumn = (tabId === 'Building' || tabId === 'Writing') ? '1 / -1' : '';
         }
     </script>
 </body>
