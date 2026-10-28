@@ -1,3 +1,6 @@
+---
+layout: null
+---
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -189,13 +192,17 @@
 
                 <div id="Writing" class="tab-content" style="display:none">
                     <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px;">
+                        {% for post in site.posts %}
                         <li>
-                            <p style="font-size: 1rem; font-weight: 700; color: #111;">About Me</p>
-                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">My First Article</p>
+                            <p style="font-size: 1rem; font-weight: 700; color: #111;">{{ post.title | escape }}</p>
+                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncatewords: 18 | escape_once }}</p>
                             <div style="display: flex; gap: 12px; margin-top: 6px;">
-                                <a href="blog/how-i-built-penguin/" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">read</a>
+                                <a href="{{ post.url | relative_url | escape }}" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">read</a>
                             </div>
                         </li>
+                        {% else %}
+                        <li style="font-size: 0.9rem; color: #9ca3af;">No posts yet.</li>
+                        {% endfor %}
                     </ul>
                 </div>
 
@@ -208,8 +215,9 @@
             'images/me1.jpg','images/me2.jpg','images/me3.JPG',
             'images/me4.jpg','images/me5.png','images/interest1.jpg',
             'images/interest2.jpg','images/interest3.jpg',
-            'images/interest4.png','images/interest5.jpg',
+            'images/cornell-campus.jpeg','images/multimodal-hackathon.jpeg',
         ];
+        const photoSwapInterval = 2000;
 
         let currentImages = [allImages[0], allImages[5]];
         const photoSlots = [
@@ -223,8 +231,6 @@
             return available[Math.floor(Math.random() * available.length)];
         }
 
-        function getRandomInterval() { return Math.random() * 300 + 1000; }
-
         function switchImageForSlot(slotIndex) {
             const slot = photoSlots[slotIndex];
             if (!slot.isPaused) {
@@ -234,7 +240,7 @@
                     document.getElementById(`profileImage${slot.id}`).src = newImage;
                 }
             }
-            slot.timeoutId = setTimeout(() => switchImageForSlot(slotIndex), getRandomInterval());
+            slot.timeoutId = setTimeout(() => switchImageForSlot(slotIndex), photoSwapInterval);
         }
 
         window.addEventListener('load', () => {
@@ -246,7 +252,7 @@
                 img.addEventListener('mouseenter', () => { slot.isPaused = true; });
                 img.addEventListener('mouseleave', () => { slot.isPaused = false; });
                 img.addEventListener('click', () => { slot.isPaused = !slot.isPaused; });
-                slot.timeoutId = setTimeout(() => switchImageForSlot(i), i * 500 + getRandomInterval());
+                slot.timeoutId = setTimeout(() => switchImageForSlot(i), photoSwapInterval);
             }
         });
 
