@@ -33,6 +33,24 @@ layout: null
 
     .active-link { color: #111; font-weight: 700; }
 
+    .writing-columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 32px;
+    }
+    .writing-columns h2 {
+        font-size: 1rem;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 16px;
+    }
+    .writing-columns ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 24px;
+    }
+
     #Home { font-size: 1rem; line-height: 1.75; color: #4b5563; }
     #Home > p + p { margin-top: 20px; }
     #Home .personal-footer {
@@ -47,6 +65,7 @@ layout: null
     @media (max-width: 480px) {
         main { padding: 48px 24px 40px; }
         #photo-row { gap: 12px; margin-bottom: 32px; }
+        .writing-columns { grid-template-columns: 1fr; gap: 32px; }
     }
 
     </style>
@@ -191,31 +210,36 @@ layout: null
                 </div>
 
                 <div id="Writing" class="tab-content" style="display:none">
-                    <h2 style="font-size: 1rem; font-weight: 700; color: #111; margin-bottom: 16px;">Tech &amp; building</h2>
-                    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px;">
-                        {% for post in site.posts %}
-                        <li>
-                            <p style="font-size: 1rem; font-weight: 700; color: #111;">{{ post.title | escape }}</p>
-                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncatewords: 18 | escape_once }}</p>
-                            <div style="display: flex; gap: 12px; margin-top: 6px;">
-                                <a href="{{ post.url | relative_url | escape }}" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">read</a>
-                            </div>
-                        </li>
-                        {% else %}
-                        <li style="font-size: 0.9rem; color: #9ca3af;">No posts yet.</li>
-                        {% endfor %}
-                    </ul>
-
-                    <h2 style="font-size: 1rem; font-weight: 700; color: #111; margin: 36px 0 16px;">Essays &amp; reflections</h2>
-                    <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 24px 32px;">
-                        <li>
-                            <p style="font-size: 1rem; font-weight: 700; color: #111;">Substack</p>
-                            <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Personal essays and reflections.</p>
-                            <div style="display: flex; gap: 12px; margin-top: 6px;">
-                                <a href="https://substack.com/@dolorcrepusculum920925" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">read on Substack</a>
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="writing-columns">
+                        <section>
+                            <h2>Tech &amp; building</h2>
+                            <ul>
+                                {% for post in site.posts %}
+                                <li>
+                                    <p style="font-size: 1rem; font-weight: 700; color: #111;">{{ post.title | escape }}</p>
+                                    <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">{{ post.description | default: post.excerpt | strip_html | strip_newlines | truncatewords: 18 | escape_once }}</p>
+                                    <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                        <a href="{{ post.url | relative_url | escape }}" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">read</a>
+                                    </div>
+                                </li>
+                                {% else %}
+                                <li style="font-size: 0.9rem; color: #9ca3af;">No posts yet.</li>
+                                {% endfor %}
+                            </ul>
+                        </section>
+                        <section>
+                            <h2>Essays &amp; reflections</h2>
+                            <ul>
+                                <li>
+                                    <p style="font-size: 1rem; font-weight: 700; color: #111;">Substack</p>
+                                    <p style="font-size: 0.9rem; color: #9ca3af; margin-top: 4px;">Personal essays and reflections.</p>
+                                    <div style="display: flex; gap: 12px; margin-top: 6px;">
+                                        <a href="https://substack.com/@dolorcrepusculum920925" style="font-size: 0.85rem; font-family: monospace; color: #9ca3af; text-decoration: underline;">read on Substack</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </section>
+                    </div>
                 </div>
 
             </section>
